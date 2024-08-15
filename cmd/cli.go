@@ -33,6 +33,6 @@ func New() *cli.App {
 	return app
 }
 
-func RegisterCommands(cmds ...cli.Command) {
-	commands = append(commands, cmds...)
+func RegisterCommand(name string, action func(c *cli.Context) error) {
+	commands = append(commands, cli.Command{Name: name, Action: action})
 }

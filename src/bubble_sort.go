@@ -6,11 +6,6 @@ import (
 	"github.com/urfave/cli"
 )
 
-var bubbleSortCmd = cli.Command{
-	Name:   "bubbleSort",
-	Action: bubbleSort,
-}
-
 func bubbleSort(c *cli.Context) error {
 	bubbleSortCase([]int{9, 8, 7, 6, 5, 4, 3, 2, 1})
 	bubbleSortCase([]int{8, 7, 6, 5, 4, 3, 2, 1})
