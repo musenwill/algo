@@ -29,24 +29,17 @@ func binarySearchCase(array []int, target int) {
 }
 
 func binarySearchImp(array []int, target int) (int, error) {
-	if len(array) == 0 {
-		return 0, errors.New("not found")
-	}
-
 	left, right := 0, len(array)-1
-	middle := (left + right) / 2
 
-	for middle >= 0 && middle <= right && left <= right {
-		if array[middle] > target {
-			right = middle - 1
-			middle = (left + right) / 2
+	for left <= right {
+		middle := (left + right) / 2
+		if array[middle] == target {
+			return middle, nil
 		} else if array[middle] < target {
 			left = middle + 1
-			middle = (left + right) / 2
 		} else {
-			return middle, nil
+			right = middle - 1
 		}
 	}
-
 	return 0, errors.New("not found")
 }

@@ -26,12 +26,13 @@ func insertSortCase(array []int) {
 func insertSortImp(array []int) []int {
 	for i := 1; i < len(array); i++ {
 		for j := 0; j < i; j++ {
-			if array[j] >= array[i] {
-				tmp := array[i]
-				for k := i; k > j; k-- {
-					array[k] = array[k-1]
-					array[j] = tmp
+			if array[j] > array[i] {
+				tmp := array[j]
+				array[j] = array[i]
+				for ; j < i; j++ {
+					array[j+1], tmp = tmp, array[j+1]
 				}
+				break
 			}
 		}
 	}

@@ -24,12 +24,13 @@ func bubbleSortCase(array []int) {
 }
 
 func bubbleSortImp(array []int) []int {
-	for i := 0; i < len(array); i++ {
-		for j := i + 1; j < len(array); j++ {
-			if array[i] > array[j] {
-				array[i], array[j] = array[j], array[i]
+	for i := len(array) - 1; i >= 0; i-- {
+		for j := 0; j < i; j++ {
+			if array[j] > array[j+1] {
+				array[j], array[j+1] = array[j+1], array[j]
 			}
 		}
 	}
+
 	return array
 }

@@ -33,8 +33,6 @@ func quickSortRecur(array []int, left, right int) {
 	if left >= right {
 		return
 	}
-	middle := (left + right) / 2
-	array[right], array[middle] = array[middle], array[right]
 
 	i, j := left, right-1
 	for i <= j {
@@ -46,7 +44,6 @@ func quickSortRecur(array []int, left, right int) {
 		}
 	}
 	array[i], array[right] = array[right], array[i]
-
 	quickSortRecur(array, left, i-1)
 	quickSortRecur(array, i+1, right)
 }
