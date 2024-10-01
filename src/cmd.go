@@ -7,5 +7,7 @@ func init() {
 	cmd.RegisterCommand("directSort", directSort)
 	cmd.RegisterCommand("insertSort", insertSort)
 	cmd.RegisterCommand("quickSort", quickSort)
+	cmd.RegisterCommand("mergeSort", mergeSort)
+	cmd.RegisterCommand("shellSort", shellSort)
 	cmd.RegisterCommand("binarySearch", binarySearch)
 }
