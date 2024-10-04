@@ -9,5 +9,6 @@ func init() {
 	cmd.RegisterCommand("quickSort", quickSort)
 	cmd.RegisterCommand("mergeSort", mergeSort)
 	cmd.RegisterCommand("shellSort", shellSort)
+	cmd.RegisterCommand("heapSort", heapSort)
 	cmd.RegisterCommand("binarySearch", binarySearch)
 }
