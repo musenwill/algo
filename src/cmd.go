@@ -19,4 +19,5 @@ func init() {
 	cmd.RegisterCommand("reverseLink", reverseLink)
 	cmd.RegisterCommand("sortLink", sortLink)
 	cmd.RegisterCommand("mergeLink", mergeLink)
+	cmd.RegisterCommand("swapLink", swapLink)
 }
