@@ -17,4 +17,5 @@ func init() {
 	cmd.RegisterCommand("pow", pow)
 	cmd.RegisterCommand("topK", topK)
 	cmd.RegisterCommand("reverseLink", reverseLink)
+	cmd.RegisterCommand("sortLink", sortLink)
 }
