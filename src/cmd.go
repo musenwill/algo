@@ -18,4 +18,5 @@ func init() {
 	cmd.RegisterCommand("topK", topK)
 	cmd.RegisterCommand("reverseLink", reverseLink)
 	cmd.RegisterCommand("sortLink", sortLink)
+	cmd.RegisterCommand("mergeLink", mergeLink)
 }
