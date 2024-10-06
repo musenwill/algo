@@ -13,4 +13,6 @@ func init() {
 	cmd.RegisterCommand("binarySearch", binarySearch)
 
 	cmd.RegisterCommand("hanoi", hanoi)
+	cmd.RegisterCommand("gcd", gcd)
+	cmd.RegisterCommand("pow", pow)
 }
