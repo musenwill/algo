@@ -11,4 +11,6 @@ func init() {
 	cmd.RegisterCommand("shellSort", shellSort)
 	cmd.RegisterCommand("heapSort", heapSort)
 	cmd.RegisterCommand("binarySearch", binarySearch)
+
+	cmd.RegisterCommand("hanoi", hanoi)
 }
