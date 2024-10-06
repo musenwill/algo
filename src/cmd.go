@@ -15,4 +15,6 @@ func init() {
 	cmd.RegisterCommand("hanoi", hanoi)
 	cmd.RegisterCommand("gcd", gcd)
 	cmd.RegisterCommand("pow", pow)
+	cmd.RegisterCommand("topK", topK)
+	cmd.RegisterCommand("reverseLink", reverseLink)
 }
