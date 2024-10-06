@@ -20,4 +20,5 @@ func init() {
 	cmd.RegisterCommand("sortLink", sortLink)
 	cmd.RegisterCommand("mergeLink", mergeLink)
 	cmd.RegisterCommand("swapLink", swapLink)
+	cmd.RegisterCommand("circleLink", circleLink)
 }

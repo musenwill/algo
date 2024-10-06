@@ -10,10 +10,29 @@ type SingleLinkNode struct {
 	Next *SingleLinkNode
 }
 
+func (L *SingleLinkNode) NthNode(n int) *SingleLinkNode {
+	count := 0
+	for L != nil {
+		if count == n {
+			return L
+		}
+		L = L.Next
+		count++
+	}
+	return nil
+}
+
+func (L *SingleLinkNode) TailNode() *SingleLinkNode {
+	for L != nil && L.Next != nil {
+		L = L.Next
+	}
+	return L
+}
+
 func (L *SingleLinkNode) Dump() string {
 	var sb strings.Builder
 
-	for nil != L {
+	for L != nil {
 		sb.WriteString(fmt.Sprintf("%d -> ", L.Val))
 		L = L.Next
 	}
