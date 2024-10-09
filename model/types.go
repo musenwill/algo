@@ -78,3 +78,67 @@ func (D *DoubleLinkNode) Dump() string {
 	sb.WriteString("nil")
 	return sb.String()
 }
+
+type TreeNode struct {
+	Val   rune
+	Left  *TreeNode
+	Right *TreeNode
+}
+
+func (T *TreeNode) FirstRootDump() string {
+	var sb strings.Builder
+	T.firstRootDump(&sb)
+	return sb.String()
+}
+
+func (T *TreeNode) firstRootDump(sb *strings.Builder) {
+	if T == nil {
+		return
+	}
+	sb.WriteRune(T.Val)
+	if T.Left != nil {
+		T.Left.firstRootDump(sb)
+	}
+	if T.Right != nil {
+		T.Right.firstRootDump(sb)
+	}
+}
+
+func (T *TreeNode) MiddleRootDump() string {
+	var sb strings.Builder
+	T.middleRootDump(&sb)
+	return sb.String()
+}
+
+func (T *TreeNode) middleRootDump(sb *strings.Builder) {
+	if T == nil {
+		return
+	}
+	if T.Left != nil {
+		T.Left.middleRootDump(sb)
+	}
+	sb.WriteRune(T.Val)
+	if T.Right != nil {
+		T.Right.middleRootDump(sb)
+	}
+}
+
+func (T *TreeNode) LastRootDump() string {
+	var sb strings.Builder
+	T.lastRootDump(&sb)
+	return sb.String()
+}
+
+func (T *TreeNode) lastRootDump(sb *strings.Builder) {
+	if T == nil {
+		return
+	}
+
+	if T.Left != nil {
+		T.Left.lastRootDump(sb)
+	}
+	if T.Right != nil {
+		T.Right.lastRootDump(sb)
+	}
+	sb.WriteRune(T.Val)
+}

@@ -22,4 +22,5 @@ func init() {
 	cmd.RegisterCommand("swapLink", swapLink)
 	cmd.RegisterCommand("circleLink", circleLink)
 	cmd.RegisterCommand("lru", lru)
+	cmd.RegisterCommand("treeFM", treeFM)
 }
