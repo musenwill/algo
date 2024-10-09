@@ -60,3 +60,21 @@ func BuildSingleLink(values ...int) *SingleLinkNode {
 
 	return head
 }
+
+type DoubleLinkNode struct {
+	Key  int
+	Val  int
+	Prev *DoubleLinkNode
+	Next *DoubleLinkNode
+}
+
+func (D *DoubleLinkNode) Dump() string {
+	var sb strings.Builder
+
+	for D != nil {
+		sb.WriteString(fmt.Sprintf("(%d, %d) -> ", D.Key, D.Val))
+		D = D.Next
+	}
+	sb.WriteString("nil")
+	return sb.String()
+}

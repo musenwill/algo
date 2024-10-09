@@ -21,4 +21,5 @@ func init() {
 	cmd.RegisterCommand("mergeLink", mergeLink)
 	cmd.RegisterCommand("swapLink", swapLink)
 	cmd.RegisterCommand("circleLink", circleLink)
+	cmd.RegisterCommand("lru", lru)
 }
