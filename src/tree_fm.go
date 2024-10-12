@@ -25,6 +25,7 @@ func treeFMCase(firstRoot, middleRoot string) {
 	fmt.Println(node.FirstRootDump())
 	fmt.Println(node.MiddleRootDump())
 	fmt.Println(node.LastRootDump())
+	fmt.Println(treeLayerSum(node))
 }
 
 func treeFMImp(firstRoot, middleRoot []rune, firstRootFirstIdx, firstRootLastIdx,
@@ -67,4 +68,32 @@ func treeFMImp(firstRoot, middleRoot []rune, firstRootFirstIdx, firstRootLastIdx
 	}
 
 	return node
+}
+
+func treeLayerSum(root *model.TreeNode) []int {
+	result := make([]int, 0)
+
+	if root == nil {
+		return result
+	}
+
+	layerA := make([]*model.TreeNode, 0)
+
+	layerA = append(layerA, root)
+	for len(layerA) > 0 {
+		sum := 0
+		layerB := make([]*model.TreeNode, 0)
+		for _, node := range layerA {
+			sum += int(node.Val)
+			if node.Left != nil {
+				layerB = append(layerB, node.Left)
+			}
+			if node.Right != nil {
+				layerB = append(layerB, node.Right)
+			}
+		}
+		result = append(result, sum)
+		layerA = layerB
+	}
+	return result
 }

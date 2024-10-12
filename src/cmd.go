@@ -25,4 +25,5 @@ func init() {
 	cmd.RegisterCommand("treeFM", treeFM)
 	cmd.RegisterCommand("treeLM", treeLM)
 	cmd.RegisterCommand("channel", channel)
+	cmd.RegisterCommand("sentenceReverse", sentenceReverse)
 }

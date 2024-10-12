@@ -25,6 +25,7 @@ func treeLMCase(firstRoot, middleRoot string) {
 	fmt.Println(node.FirstRootDump())
 	fmt.Println(node.MiddleRootDump())
 	fmt.Println(node.LastRootDump())
+	fmt.Println(treeLayerSum(node))
 }
 
 func treeLMImp(lastRoot, middleRoot []rune, lastRootFirstIdx, lastRootLastIdx,
