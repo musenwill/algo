@@ -26,4 +26,5 @@ func init() {
 	cmd.RegisterCommand("treeLM", treeLM)
 	cmd.RegisterCommand("channel", channel)
 	cmd.RegisterCommand("sentenceReverse", sentenceReverse)
+	cmd.RegisterCommand("allOrder", allOrder)
 }
