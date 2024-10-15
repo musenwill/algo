@@ -28,4 +28,5 @@ func init() {
 	cmd.RegisterCommand("sentenceReverse", sentenceReverse)
 	cmd.RegisterCommand("allOrder", allOrder)
 	cmd.RegisterCommand("editDistance", editDistance)
+	cmd.RegisterCommand("bag01", bag01)
 }

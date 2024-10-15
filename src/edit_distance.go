@@ -36,7 +36,7 @@ func editDistanceImp(wordA, wordB []rune) int {
 	for _, w := range wordA {
 		for j, v := range wordB {
 			up := distances[j]
-			min := minOfTree(pre, left, up)
+			min := min(pre, left, up)
 			if w != v {
 				min++
 			}
@@ -47,15 +47,4 @@ func editDistanceImp(wordA, wordB []rune) int {
 	}
 
 	return distances[len(wordB)-1]
-}
-
-func minOfTree(a, b, c int) int {
-	min := a
-	if b < min {
-		min = b
-	}
-	if c < min {
-		min = c
-	}
-	return min
 }
