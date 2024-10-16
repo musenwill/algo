@@ -1,78 +1,52 @@
 package src
 
 import (
-	"bufio"
 	"fmt"
-	"os"
-	"strconv"
-	"strings"
 
 	"github.com/urfave/cli"
 )
 
 func bag01(c *cli.Context) error {
+	bag01Case([]int{3, 2, 5, 7}, 13)
+	bag01Case([]int{3, 2, 5, 7}, 14)
+	bag01Case([]int{3, 2, 5, 7}, 15)
+	bag01Case([]int{3, 2, 5, 7}, 16)
 	return nil
 }
 
-func bag01Case() {
-
+func bag01Case(bricks []int, cap int) {
+	fmt.Printf("%d = %d-%v\n", bag01Imp(make(map[string]int), bricks, cap), cap, bricks)
 }
 
-func bag01Imp() {
-
-}
-
-func main() {
-	reader := bufio.NewReader(os.Stdin)
-	input, _ := reader.ReadString(0)
-	lines := strings.Split(string(input), "\n")
-
-	bagMap := make(map[string]int)
-	fmt.Println(maxCount(bagMap, bricks(lines[0]), bagSize(lines[1])))
-}
-
-func maxCount(bagMap map[string]int, bricks []int, bagSize int) int {
-	kna := fmt.Sprintf("%d-%d", len(bricks), bagSize)
-	if n, ok := bagMap[kna]; ok {
-		return n
+func bag01Imp(dict map[string]int, bricks []int, cap int) int {
+	key := fmt.Sprintf("%d-%d", len(bricks), cap)
+	if weight, ok := dict[key]; ok {
+		return weight
 	}
 
-	if len(bricks) == 0 || bagSize <= 0 {
-		bagMap[kna] = 0
+	if len(bricks) == 0 || cap <= 0 {
+		dict[key] = 0
 		return 0
 	}
 
 	lastBrick := bricks[len(bricks)-1]
 
-	kn1a1 := fmt.Sprintf("%d-%d", len(bricks)-1, bagSize-lastBrick)
-	if _, ok := bagMap[kn1a1]; !ok {
-		maxCount(bagMap, bricks[:len(bricks)-1], bagSize-lastBrick)
+	kn1a1 := fmt.Sprintf("%d-%d", len(bricks)-1, cap-lastBrick)
+	if _, ok := dict[kn1a1]; !ok {
+		bag01Imp(dict, bricks[:len(bricks)-1], cap-lastBrick)
 	}
-	n1a1 := bagMap[kn1a1]
+	n1a1 := dict[kn1a1]
 
-	kna1 := fmt.Sprintf("%d-%d", len(bricks)-1, bagSize)
-	if _, ok := bagMap[kna1]; !ok {
-		maxCount(bagMap, bricks[:len(bricks)-1], bagSize)
-	}
-	na1 := bagMap[kna1]
-
-	if bagSize >= lastBrick {
+	if n1a1+lastBrick <= cap {
 		n1a1 += lastBrick
-	} else {
-		n1a1 = 0
 	}
-	n := max(n1a1, na1)
-	bagMap[kna] = n
 
-	return n
-}
-
-func bricks(line string) []int {
-	var ns []int
-	ss := strings.Split(line, " ")
-	for _, s := range ss {
-		b, _ := strconv.ParseInt(strings.TrimSpace(s), 10, 64)
-		ns = append(ns, int(b))
+	kna1 := fmt.Sprintf("%d-%d", len(bricks)-1, cap)
+	if _, ok := dict[kna1]; !ok {
+		bag01Imp(dict, bricks[:len(bricks)-1], cap)
 	}
-	return ns
+	na1 := dict[kna1]
+
+	dict[key] = max(n1a1, na1)
+	return dict[key]
 }
